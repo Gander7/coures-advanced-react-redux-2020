@@ -1,6 +1,4 @@
 export default ({dispatch}) => (next) => (action) => {
-    console.log(action)
-
     // Check to see if action has a promise in payload
     // if it doesn't have a promise, pass it on
     if (!action.payload || !action.payload.then) {

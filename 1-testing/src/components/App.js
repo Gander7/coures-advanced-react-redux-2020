@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Route, Link } from 'react-router-dom'
+import { Route, Link, Switch } from 'react-router-dom'
 import * as actions from '../actions'
 import CommentBox from './CommentBox'
 import CommentList from './CommentList'
@@ -17,27 +17,29 @@ class App extends React.Component {
 
     renderHeader() {
         return (
-            <ul>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/post">Post a Comment</Link>
-                </li>
-                <li>
-                    {this.renderButton()}
-                </li>
-            </ul>
+            <div>
+                <ul>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/post">Post a Comment</Link>
+                    </li>
+                    <li>
+                        {this.renderButton()}
+                    </li>
+                </ul>
+            </div>
         )
     }
     render() {
         return (
             <div>
                 {this.renderHeader()}
-                <Route path="/post" component={CommentBox} />
-                <Route path="/" exact component={CommentList} />
-                <CommentBox />
-                <CommentList />
+                <Switch>
+                    <Route path="/post" component={CommentBox} />
+                    <Route path="/" exact component={CommentList} />
+                </Switch>
             </div>
         )
     }

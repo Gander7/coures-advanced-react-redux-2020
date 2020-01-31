@@ -71,7 +71,7 @@ namespace api.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult> PostUser(User user)
+        public async Task<ActionResult> PostUser([FromBody] User user)
         {
             // TODO: Check Username and Password for patterns
             if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password))

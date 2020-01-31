@@ -1,3 +1,4 @@
+using System;
 using api.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
@@ -22,8 +23,8 @@ namespace api.services
         async public Task<User> CreateUser(string username, string password)
         {
             // Check to make sure that email doesn't exist
-            var otherUser = getUserByUsername(username);
-            if (otherUser == null) 
+            var otherUser = getUserByUsername(username).Result;
+            if (otherUser != null) 
                 return null;
 
             // Create User

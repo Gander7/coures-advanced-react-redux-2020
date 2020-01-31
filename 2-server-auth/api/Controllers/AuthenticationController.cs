@@ -30,7 +30,7 @@ namespace api.Controllers
             _config = config;
         }
 
-        [HttpGet("login")]
+        [HttpPost("login")]
         public async Task<ActionResult> Login(User paramUser) {
 
             // Check to make sure that email exists

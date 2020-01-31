@@ -1,9 +1,12 @@
 import React from 'react'
 
-const App = () => {
+import Header from './Header'
+
+const App = (props) => {
     return (
         <div>
-            Hi There!
+            <Header/>
+            {props.children}
         </div>
     )
 }

@@ -83,8 +83,10 @@ namespace api.Controllers
             if (newUser == null)
                 return JsonRes.Create(422, new { message = "username already exists." });
 
+            var tokenStr = Auth.GenerateJSONWebToken(newUser, _config); 
+
             // Return Success
-            return JsonRes.Create(201, new { username = newUser.Username });
+            return JsonRes.Create(201, new { username = newUser.Username, token = tokenStr });
         }
 
         // DELETE: api/Authentication/5

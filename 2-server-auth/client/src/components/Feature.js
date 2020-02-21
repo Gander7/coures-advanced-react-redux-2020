@@ -1,14 +1,10 @@
 import React from 'react'
-import requireAuth from './requireAuth'
+//import requireAuth from './requireAuth'
+import useAuth from './useAuth'
 
-class Feature extends React.Component {
-    render() {
-        return (
-            <div>
-                Feature
-            </div>
-        )
-    }
+const Feature = () => {
+    useAuth()
+    return <div>Feature</div>
 }
 
-export default requireAuth(Feature)
+export default Feature
